@@ -1,10 +1,15 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
-function OpcionesHeader (props) {
+function OpcionesHeader(props) {
     return(
-        <ul>
+        <ul className='main-nav'>
             {
-                props.menu.map((elm, idx) => <li key={idx + "-" + elm.name}>{elm.name}</li>)
+                props.menu.map((elm, idx) => 
+                <li key={`${elm.name}-${idx}`}>
+                 <Link to={elm.path} >{elm.name}
+                 </Link>
+                 </li>)
             }
         </ul>
     )

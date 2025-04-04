@@ -1,5 +1,6 @@
 import React from "react";
 import OpcionesHeader from "./OpcionesHeader";
+
 function Header (){
      let opciones =  [
         {
