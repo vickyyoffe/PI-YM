@@ -6,10 +6,7 @@ function OpcionesHeader(props) {
         <ul className='main-nav'>
             {
                 props.menu.map((elm, idx) => 
-                <li key={`${elm.name}-${idx}`}>
-                 <Link to={elm.path} >{elm.name}
-                 </Link>
-                 </li>)
+                <li key={`${elm.name}-${idx}`}> <Link to={elm.path} >{elm.name} </Link> </li>)
             }
         </ul>
     )

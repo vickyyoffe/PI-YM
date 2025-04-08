@@ -1,5 +1,6 @@
 import React from "react";
 import OpcionesHeader from "./OpcionesHeader";
+import "./style.css";
 
 function Header (){
      let opciones =  [
@@ -10,11 +11,22 @@ function Header (){
         {
             name: "Favoritos",
             path: "/favoritos"
+        }, {
+            name: "Populares",
+            path: "/todaspopulares"
+        }, 
+        {
+            name: "Cartelera",
+            path: "/todascartelera"
         }
      ]
 
     return(
         <header>
+            <div className="logo-container">
+            <img src="/img/logo.jpg" alt="Logo de la app" className="logo" />
+            <h1 className= "titulo">CineFlex</h1>
+            </div>
            <OpcionesHeader menu={opciones} />
         </header>
     )
