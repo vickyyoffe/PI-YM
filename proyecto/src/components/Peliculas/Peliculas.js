@@ -39,12 +39,12 @@ class Peliculas extends Component{
     render(){
         return(
             <React.Fragment>
-                <h1>Peliculas populares</h1>
-                <section>
+                <h1 className="titulo-peliculas">Peliculas populares</h1>
+                <section className="peliculas-container">
                     {this.state.peliculasPopulares.map((unaPeli, idx) => <PeliPopulares key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)}
                 </section>
-                <h1>Peliculas cartelera</h1>
-                <section>
+                <h1 className="titulo-peliculas">Peliculas en cartelera</h1>
+                <section className="peliculas-container">
                 {this.state.peliculasCartelera.map((unaPeli, idx) => <PeliCartelera key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)}
                 </section>
             </React.Fragment>
