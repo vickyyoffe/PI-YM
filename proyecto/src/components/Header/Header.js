@@ -12,13 +12,9 @@ function Header (){
             name: "Favoritos",
             path: "/favoritos"
         }, {
-            name: "Populares",
-            path: "/todaspopulares"
+            name: "Ver todas",
+            path: "/vertodas"
         }, 
-        {
-            name: "Cartelera",
-            path: "/todascartelera"
-        }
      ]
 
     return(
