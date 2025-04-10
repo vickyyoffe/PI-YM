@@ -29,6 +29,7 @@ render () {
                     alt={this.state.pelicula.title}
                     style={{ cursor: "pointer" }} // Esto es opcional
                   />
+
       </div>
     </React.Fragment>
 
