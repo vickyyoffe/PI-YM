@@ -1,41 +1,93 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import './Detalle.css';
+
 class Detalle extends Component {
-  constructor(props){
-  super (props)
-    this.state = { //el id esta en la ruta parametrizada
-      id: props.match.params.id,  //match es una variable que esta dentro de las props para ahcer refernecia a los parametros que guardo en la ruta
-      pelicula: {}, //es con llave porque el array era un conjunto de obj literales, ahora el bj literal que queiro llenar es una sola pelicula
-      generos: [], //porque esta asi en la base de datos
-    } 
-}
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: props.match.params.id,
+      pelicula: {},
+      generos: [],
+      fav: false,
+      descripcion: "ocultar",
+      texto_descripcion: "ver descripción"
+    };
+  }
 
-componentDidMount(){
-fetch (`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US`) //este id esta guardado en el estado --> por eso .state
-.then(res => res.json())
-.then(data => this.setState({pelicula: data, generos:data.genres}, //aca defino data, es la informacion de la pelicula -->.genres es como se ve en la base de datos
-))
- //results es lo que está en la API
-.catch(err => console.error(err)); 
-}
-render () {
-  return(
-    <React.Fragment>
-      <div>
-        <h2>
-          {this.state.pelicula.title}
-        </h2>
-        <img 
-                    src={`https://image.tmdb.org/t/p/w342${this.state.pelicula.poster_path}`} 
-                    alt={this.state.pelicula.title}
-                    style={{ cursor: "pointer" }} // Esto es opcional
-                  />
+  componentDidMount() {
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US`)
+      .then(res => res.json())
+      .then(data => {
+        let favoritos = localStorage.getItem("favoritos");
+        let esFavorito = false;
+        if (favoritos) {
+          let favParse = JSON.parse(favoritos);
+          esFavorito = favParse.includes(data.id);
+        }
+        this.setState({ pelicula: data, generos: data.genres, fav: esFavorito });
+      })
+      .catch(err => console.error(err));
+  }
 
+  agregarFavoritos(id) {
+    let storage = localStorage.getItem("favoritos");
+    let favArray = storage ? JSON.parse(storage) : [];
+    if (!favArray.includes(id)) {
+      favArray.push(id);
+      localStorage.setItem("favoritos", JSON.stringify(favArray));
+    }
+    this.setState({ fav: true });
+  }
+
+  sacarFavoritos(id) {
+    let storage = localStorage.getItem("favoritos");
+    if (storage) {
+      let favArray = JSON.parse(storage);
+      let nuevoArray = favArray.filter(elm => elm !== id);
+      localStorage.setItem("favoritos", JSON.stringify(nuevoArray));
+    }
+    this.setState({ fav: false });
+  }
+
+  render() {
+    const { pelicula, generos, descripcion, texto_descripcion, fav } = this.state;
+
+    return (
+      <div className="detalle-container">
+        <h2 className="detalle-title">{pelicula.title}</h2>
+
+        <img
+          className="detalle-img"
+          src={`https://image.tmdb.org/t/p/w342${pelicula.poster_path}`}
+          alt={pelicula.title}
+        />
+
+        <div className="detalle-info">
+          <p>Calificación: {pelicula.vote_average}</p>
+          <p>Fecha de estreno: {pelicula.release_date}</p>
+          <p>Duración: {pelicula.runtime} min</p>
+        </div>
+
+        <ul className="detalle-generos">
+          {generos.map((genero, idx) => (
+            <li key={genero.name + idx}>{genero.name}</li>
+          ))}
+        </ul>
+
+        <div className="descripcion-contenedor">
+          {fav ? (
+            <button onClick={() => this.sacarFavoritos(pelicula.id)}>
+              Sacar de favoritos 💔
+            </button>
+          ) : (
+            <button onClick={() => this.agregarFavoritos(pelicula.id)}>
+              Agregar a favoritos ❤️
+            </button>
+          )}
+        </div>
       </div>
-    </React.Fragment>
-
-
-  )
-}
+    );
+  }
 }
 
 export default Detalle;

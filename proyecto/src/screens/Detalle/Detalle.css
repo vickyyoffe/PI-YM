@@ -1,0 +1,85 @@
+.detalle-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .detalle-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  
+  .detalle-img {
+    width: 250px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .detalle-info p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .detalle-generos {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .detalle-generos li {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .descripcion-contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Botones */
+  .descripcion-contenedor button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+  }
+  
+  .descripcion-contenedor button:hover {
+    background-color: #c2185b;
+  }
+  
+  /* Descripción oculta/visible */
+  .ocultar {
+    display: none;
+  }
+  
+  .mostrar {
+    display: block;
+    max-width: 700px;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
