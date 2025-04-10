@@ -67,6 +67,7 @@ class PeliPopulares extends Component{
         fav: false
     })
     }
+    
      render() {
             return ( 
               <article className="pelicula"> 

@@ -1,9 +1,9 @@
 import React from 'react'
+import FormBusqueda from '../../components/FormBusqueda/FormBusqueda';
+
 function Busqueda(){
     return(
-    <div>
-         <h1>Resultados Busqueda</h1>
-    </div>
+    <FormBusqueda />
     )
 }
 

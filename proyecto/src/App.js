@@ -23,7 +23,7 @@ function App() {
         <Route path={'/'} exact={true} component={Home} />
         <Route path={'/favoritos'} exact={true} component={Favoritos} />
         <Route path={'/detalle/:id'} component={Detalle} />
-        <Route path={'/busqueda/:resultado'} component={Busqueda} />
+        <Route path={'/busqueda'} component={Busqueda} />
         <Route path={'/populares'} component={Populares} />
         <Route path={'/cartelera'} component={Cartelera} />
         <Route path={''} component={NotFound} />
