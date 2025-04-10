@@ -9,21 +9,53 @@ class PeliPopulares extends Component{
             this.state = {
                 descripcion: "ocultar",
                 texto_descripcion: "Ver descripción",
+                fav: false
             }; //lo de article lo saco de props porque el estado acá está vacío. la info la traigo del componente padre, por eso uso props.
         
     };   
-    mostrarDescripcion(){
-        if (this.state.descripcion === "ocultar"){
-            this.setState({descripcion: "mostrar",
-                texto_descripcion: "Ocultar descripción"
-            })
-        } else {
-            this.setState({descripcion: "ocultar",
-                texto_descripcion: "Ver descripción"
-            })
-        }
-        
-    };
+    mostrarDescripcion() {
+      if (this.state.descripcion === "ocultar") {
+        this.setState({
+          descripcion: "mostrar",
+          texto_descripcion: "Ocultar descripción"
+        });
+      } else {
+        this.setState({
+          descripcion: "ocultar",
+          texto_descripcion: "Ver descripción"
+        });
+      }
+    }
+
+    agregarFavoritos(id) {
+      let storage = localStorage.getItem("favoritos");
+      if (storage != null){
+        let favParse = JSON.parse(storage)
+        favParse.push(id)
+        let arrStringificado = JSON.stringify(favParse)
+        localStorage.setItem("favoritos", arrStringificado)
+      } else {
+        let primerID = [id]
+        let arrStringificado = JSON.stringify(primerID)
+        localStorage.setItem("favoritos", arrStringificado)
+      }
+
+      this.setState({
+        fav: true
+
+      })
+    }
+
+    sacarFavoritos(id){
+      let storage = localStorage.getItem("favoritos");
+      let storageParseado = JSON.parse(storage)
+      let filtrarStorage = storageParseado.filter((elm) => elm !== id) 
+      let storageSignificado = JSON.stringify(filtrarStorage)
+      localStorage.setItem("favoritos", storageSignificado)
+      this.setState({
+        fav: false
+    })
+    }
      render() {
             return ( 
               <article className="pelicula"> 
@@ -44,10 +76,22 @@ class PeliPopulares extends Component{
                   <button onClick={() => this.mostrarDescripcion()}>
                     {this.state.texto_descripcion}
                   </button>
+                  {
+                    this.state.fav ?
+                    <button onClick={() => this.sacarFavoritos(this.props.dataPeliPop.id)}>
+                    Sacar de favoritos 💔
+                    </button>
+                    :
+                    <button onClick={() => this.agregarFavoritos(this.props.dataPeliPop.id)} >
+                    Agregar a favoritos ❤️
+                    </button>
+                  }
+                  
                 </div>
           
               </article>
             );
           }
-} 
+        }
+
 export default PeliPopulares;

@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { Link } from 'react-router-dom';
 import PeliPopulares from "../peliPopulares/peliPopulares";
 import PeliCartelera from "../PeliCartelera/peliCartelera";
 const url = 'https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=1';

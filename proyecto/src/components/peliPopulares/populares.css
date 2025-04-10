@@ -64,8 +64,8 @@
     padding: 6px 12px;
     font-size: 14px;
     cursor: pointer;
-    background-color: #ff0000;
-    color: white;
+    background-color: #f4efef;
+    color: #000000;
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -73,7 +73,7 @@
   }
   
   .pelicula button:hover {
-    background-color: #cc0000;
+    background-color: #f1f1f1;
   }
   
   .titulo-peliculas {
