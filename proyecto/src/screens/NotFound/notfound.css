@@ -1,0 +1,16 @@
+.notfound-container {
+    height: 70vh; /* ocupa buena parte de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .notfound-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff0000;
+  }
+  

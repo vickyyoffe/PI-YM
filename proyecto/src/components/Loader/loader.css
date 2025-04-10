@@ -1,0 +1,15 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;   /* altura de la pantalla */
+    width: 30vh;    /* ancho de la pantalla */
+    background-color: white; /* opcional */
+    flex-direction: column;
+  }
+  
+  .gif {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+  
