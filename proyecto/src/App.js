@@ -6,7 +6,6 @@ import Populares from './screens/Populares/Populares';
 import Cartelera from './screens/Cartelera/Cartelera';
 import Home from './screens/Home/Home';
 import Detalle from './screens/Detalle/Detalle';
-import Loader from './components/Loader/Loader';
 import Busqueda from './screens/Busqueda/Busqueda';
 import Footer from './components/Footer/Footer';
 import NotFound from './screens/NotFound/NotFound';
@@ -18,7 +17,6 @@ function App() {
   <>
   
     <Header />
-    <Loader />
       <Switch>
         <Route path={'/'} exact={true} component={Home} />
         <Route path={'/favoritos'} exact={true} component={Favoritos} />

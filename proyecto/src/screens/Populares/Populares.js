@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PeliPopulares from '../../components/peliPopulares/peliPopulares';
 import FormFiltro from '../../components/FormFiltro/FormFiltro';
+import Loader from '../../components/Loader/Loader';
 const url = 'https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=1';
 
 
@@ -44,6 +45,7 @@ class Populares extends Component{
     render(){
         return (
                 <React.Fragment>
+                <Loader />
                 <h1 className="titulo-peliculas">Peliculas populares</h1>
                 <FormFiltro filtrar= {(Filtro) => this.filtrar(Filtro)} />
     

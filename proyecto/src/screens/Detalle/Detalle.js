@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Detalle.css';
+import Loader from '../../components/Loader/Loader';
 
 class Detalle extends Component {
   constructor(props) {
@@ -51,8 +52,9 @@ class Detalle extends Component {
 
   render() {
     const { pelicula, generos, descripcion, texto_descripcion, fav } = this.state;
-
     return (
+      <>
+      <Loader/>
       <div className="detalle-container">
         <h2 className="detalle-title">{pelicula.title}</h2>
 
@@ -86,6 +88,7 @@ class Detalle extends Component {
           )}
         </div>
       </div>
+      </>
     );
   }
 }
