@@ -13,6 +13,17 @@ class PeliPopulares extends Component{
             }; //lo de article lo saco de props porque el estado acá está vacío. la info la traigo del componente padre, por eso uso props.
         
     };   
+    componentDidMount (){
+      let storage = localStorage.getItem('favoritos')
+      if(storage !== null){
+        let storageParseado = JSON.parse(storage)
+        let estaMiID = storageParseado.includes(this.props.dataPeliPop.id)
+
+        if(estaMiID){
+          this.setState({fav:true})
+        }
+      }
+    } 
     mostrarDescripcion() {
       if (this.state.descripcion === "ocultar") {
         this.setState({

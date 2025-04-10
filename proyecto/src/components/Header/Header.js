@@ -1,6 +1,6 @@
 import React from "react";
 import OpcionesHeader from "./OpcionesHeader";
-import "./style.css";
+import "./header.css";
 
 function Header (){
      let opciones =  [
@@ -11,10 +11,15 @@ function Header (){
         {
             name: "Favoritos",
             path: "/favoritos"
-        }, {
-            name: "Ver todas",
-            path: "/vertodas"
         }, 
+        {
+            name: "Populares",
+            path: "/populares"
+        }, 
+        {
+            name: "Cartelera",
+            path: "/cartelera"
+        }
      ]
 
     return(
