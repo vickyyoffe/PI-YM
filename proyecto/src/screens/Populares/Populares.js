@@ -29,7 +29,7 @@ class Populares extends Component{
         .catch(err => console.error(err));
     }
     cargarMas(){
-        let url = "https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=${this.state.nextPage + 1}"
+        let url = `https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=${this.state.nextPage + 1}`
         fetch(url) // la guardo aca porq on la puedo cambiar arriba y +1 porque quiero la sigueinte pagina
         .then(res => res.json())
         .then(data => this.setState({peliculasPopulares: this.state.peliculasPopulares.concat(data.results), peliculasPopulares2: this.state.peliculasPopulares.concat(data.results), nextPage:data.page +1}, //concat: concatenar las pelis de la pag 2 a la pagina 1
@@ -75,3 +75,4 @@ class Populares extends Component{
     
 
 export default Populares;
+

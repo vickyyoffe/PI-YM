@@ -4,7 +4,6 @@ import FormFiltro from '../../components/FormFiltro/FormFiltro';
 import Loader from '../../components/Loader/Loader';
 const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=1';
 
-
 class Cartelera extends Component{
     constructor(props){
         super(props);
@@ -18,11 +17,13 @@ class Cartelera extends Component{
         }
     }
     componentDidMount(){
-        // Para peliculasCartelera
-        fetch(url) 
+        // Para peliculasPopulares
+        fetch(url) //Pegamos lo de la api key 
         .then(res => res.json())
-        .then(data => this.setState({peliculasCartelera: data.results}))
+        .then(data => this.setState({peliculasCartelera: data.results, peliculasCartelera2:data.results, nextPage:data.page},
+        ))
          //results es lo que está en la API
+         // page es lo que me interesa modifciar que está en la API
         .catch(err => console.error(err));
     }
     cargarMas(){
@@ -41,33 +42,35 @@ class Cartelera extends Component{
         this.setState({peliculasCartelera2: pelisFiltradas}) 
     }
     render(){
-        return (
-            <React.Fragment>
-                <Loader />
-                <h1 className="titulo-peliculas">Peliculas en cartelera</h1>
+            return (
+                <React.Fragment>
+                    <Loader />
+                    <h1 className="titulo-peliculas">Peliculas en cartelera</h1>
         
-                <div className="acciones-container">
-                <div className="barra-filtro">
-                <p className="filtro-texto">Filtrar</p>
-                <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
-                </div>
-    
+                    <div className="acciones-container">
+                    <div className="barra-filtro">
+                        <p className="filtro-texto">Filtrar</p>
+                        <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
+                    </div>
+
                     <div className="cargar-mas-container">
                         <button onClick={() => this.cargarMas()}>
-                            Cargar más
+                        Cargar más
                         </button>
                     </div>
-                </div>
-    
-                <section className="peliculas-container">
-                    {this.state.peliculasCartelera.map((unaPeli, idx) => (
-                        <PeliCartelera key={unaPeli.name + idx} dataPeliPop={unaPeli} />
-                    ))}
-                </section>
-            </React.Fragment>
-        )
+                    </div>
+
+        
+                    <section className="peliculas-container">
+                        {this.state.peliculasCartelera2.map((unaPeli, idx) => (
+                            <PeliCartelera key={unaPeli.name + idx} dataPeliPop={unaPeli} />
+                        ))}
+                    </section>
+                </React.Fragment>
+            )
+        }
     }
     
-}
 
 export default Cartelera;
+
