@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PeliPopulares from '../../components/peliPopulares/peliPopulares';
 import FormFiltro from '../../components/FormFiltro/FormFiltro';
 import Loader from '../../components/Loader/Loader';
+import "./populares.css"
 const url = 'https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=1';
 
 
@@ -43,22 +44,32 @@ class Populares extends Component{
         this.setState({peliculasPopulares2: pelisFiltradas}) 
     }
     render(){
-        return (
+            return (
                 <React.Fragment>
-                <Loader />
-                <h1 className="titulo-peliculas">Peliculas populares</h1>
-                <FormFiltro filtrar= {(Filtro) => this.filtrar(Filtro)} />
-    
-                <section className="peliculas-container">
-                    {this.state.peliculasPopulares2.map((unaPeli, idx) => <PeliPopulares key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)} {/*datapelipop es unapeli en otros componenetes*/}
-                </section>
-                <button onClick={() => this.cargarMas()}>
-                 Cargar más
-                </button>
-                </ React.Fragment>
-        )
+                    <Loader />
+                    <h1 className="titulo-peliculas">Peliculas populares</h1>
+        
+                    <div className="acciones-container">
+                        <div className="barra-filtro">
+                            <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
+                        </div>
+        
+                        <div className="cargar-mas-container">
+                            <button onClick={() => this.cargarMas()}>
+                                Cargar más
+                            </button>
+                        </div>
+                    </div>
+        
+                    <section className="peliculas-container">
+                        {this.state.peliculasPopulares2.map((unaPeli, idx) => (
+                            <PeliPopulares key={unaPeli.name + idx} dataPeliPop={unaPeli} />
+                        ))}
+                    </section>
+                </React.Fragment>
+            )
+        }
     }
     
-}
 
 export default Populares;

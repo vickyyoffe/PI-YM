@@ -53,8 +53,8 @@
   
   /* Botones */
   .descripcion-contenedor button {
-    background-color: #e91e63;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     padding: 10px 18px;
     margin: 10px;
@@ -65,7 +65,7 @@
   }
   
   .descripcion-contenedor button:hover {
-    background-color: #c2185b;
+    background-color: #cf0707;
   }
   
   /* Descripción oculta/visible */

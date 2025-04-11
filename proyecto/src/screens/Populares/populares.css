@@ -1,0 +1,36 @@
+.acciones-container {
+    display: flex;
+    justify-content: space-between; /* Esto los manda a cada punta */
+    align-items: center;
+    margin: 20px;
+    flex-wrap: wrap; /* Para que no se rompa en pantallas chicas */
+    gap: 10px; /* Espaciado opcional entre ellos si bajan de línea */
+  }
+  .barra-filtro {
+    padding: 15px;
+    background-color: #ec0e0e;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+  }
+  
+  .cargar-mas-container {
+    margin: 0;
+  }
+  
+  .cargar-mas-container button {
+    background-color: #df1111;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .cargar-mas-container button:hover {
+    background-color: #ec0e0e;
+    transform: translateY(-2px);
+  }
