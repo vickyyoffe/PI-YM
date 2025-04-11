@@ -1,0 +1,23 @@
+.Favoritos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* más espacio entre tarjetas */
+  justify-content: flex-start;
+  padding: 30px;
+}
+
+.Favoritos > * {
+  border: 2px solid #e63946; /* rojo coral, elegante */
+  border-radius: px;
+  padding: 16px;
+  width: 260px; /* más grande */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Favoritos > *:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+

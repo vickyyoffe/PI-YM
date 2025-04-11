@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PeliPopulares from '../../components/peliPopulares/peliPopulares';
+import '../Favoritos/Favoritos.css';
 const ApiKey = '3c3e8a434106d2ff26f310897cce73fa';
 
 class Favoritos extends Component {
@@ -58,7 +59,7 @@ class Favoritos extends Component {
 
   render() {
     return (
-      <div className='Favoritos'>
+      <div className='peliculas-container'>
         {
           this.state.PelisFav.length > 0
             ?
