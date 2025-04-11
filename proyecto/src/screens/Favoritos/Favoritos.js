@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Favorito from "../../components/Favorito/Favorito";
+import PeliPopulares from '../../components/peliPopulares/peliPopulares';
 const ApiKey = '3c3e8a434106d2ff26f310897cce73fa';
 
 class Favoritos extends Component {
@@ -12,7 +12,7 @@ class Favoritos extends Component {
   }
 
   componentDidMount() {
-    const storageFav = localStorage.getItem('Favorito');
+    const storageFav = localStorage.getItem('favoritos');
     if (storageFav !== null) {
       let FavParseado = JSON.parse(storageFav);
       if (FavParseado.length > 0) {
@@ -31,26 +31,42 @@ class Favoritos extends Component {
       }
     }
   }
-
+  actualizarFavoritos() {
+    const storageFav = localStorage.getItem('favoritos');
+    if (storageFav !== null) {
+      let FavParseado = JSON.parse(storageFav);
+      Promise.all(
+        FavParseado.map((elm) =>
+          fetch(`https://api.themoviedb.org/3/movie/${elm}?api_key=${ApiKey}`)
+            .then((resp) => resp.json())
+            .catch(e => console.log(e))
+        )
+      )
+        .then((data) => this.setState({
+          PelisFav: data,
+          hayElementosEnFav: true
+        }))
+        .catch(e => console.log(e));
+    }
+  }
   filtrarFavorito(id) {
-    const personajesFavoritos = this.state.PelisFav.filter(
+    const peliFiltrada = this.state.PelisFav.filter(
       elm => elm.id !== id
     );
-    this.setState({ PelisFav: personajesFavoritos });
+    this.setState({ PelisFav: peliFiltrada });
   }
 
   render() {
     return (
-      <div>
+      <div className='Favoritos'>
         {
           this.state.PelisFav.length > 0
             ?
             this.state.PelisFav.map((elm, idx) =>
-              <Favorito
-                data={elm}
-                key={idx + elm.title}
-                borrarFav={(id) => this.filtrarFavorito(id)}
-              />)
+            <PeliPopulares
+              dataPeliPop={elm}
+              key={idx + elm.title}
+              borrarFav={(id) => this.filtrarFavorito(id)}/>)
             :
             this.state.hayElementosEnFav === false ?
               <h1>Favoritos está vacío 🥲</h1>
