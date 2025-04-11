@@ -64,11 +64,13 @@ class Detalle extends Component {
           alt={pelicula.title}
         />
 
-        <div className="detalle-info">
-          <p>Calificación: {pelicula.vote_average}</p>
-          <p>Fecha de estreno: {pelicula.release_date}</p>
-          <p>Duración: {pelicula.runtime} min</p>
-        </div>
+      <div className="detalle-info">
+        <p><strong>Calificación:</strong> {pelicula.vote_average}</p>
+        <p><strong>Sinopsis:</strong> {pelicula.overview}</p>
+        <p><strong>Fecha de estreno:</strong> {pelicula.release_date}</p>
+        <p><strong>Duración:</strong> {pelicula.runtime} min</p>
+      </div>
+
 
         <ul className="detalle-generos">
           {generos.map((genero, idx) => (

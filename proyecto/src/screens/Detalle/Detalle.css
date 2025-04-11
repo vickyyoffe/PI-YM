@@ -53,7 +53,7 @@
   
   /* Botones */
   .descripcion-contenedor button {
-    background-color: #ffffff;
+    background-color: #f89b9b;
     color: rgb(0, 0, 0);
     border: none;
     padding: 10px 18px;
@@ -78,8 +78,17 @@
     max-width: 700px;
     margin-top: 15px;
     font-size: 1rem;
-    color: #444;
+    color: #fffdfd;
     line-height: 1.6;
     text-align: justify;
+  }
+  
+  .detalle-info {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
   }
   
