@@ -45,11 +45,12 @@ class Cartelera extends Component{
             <React.Fragment>
                 <Loader />
                 <h1 className="titulo-peliculas">Peliculas en cartelera</h1>
-    
+        
                 <div className="acciones-container">
-                    <div className="barra-filtro">
-                        <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
-                    </div>
+                <div className="barra-filtro">
+                <p className="filtro-texto">Filtrar</p>
+                <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
+                </div>
     
                     <div className="cargar-mas-container">
                         <button onClick={() => this.cargarMas()}>

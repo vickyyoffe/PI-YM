@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PeliPopulares from '../../components/peliPopulares/peliPopulares';
 import FormFiltro from '../../components/FormFiltro/FormFiltro';
 import Loader from '../../components/Loader/Loader';
-import "./populares.css"
+import "./populares.css";
 const url = 'https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=1';
 
 
@@ -29,7 +29,7 @@ class Populares extends Component{
         .catch(err => console.error(err));
     }
     cargarMas(){
-        let url = `https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=${this.state.nextPage + 1}`
+        let url = "https://api.themoviedb.org/3/movie/popular?api_key=3c3e8a434106d2ff26f310897cce73fa&language=en-US&page=${this.state.nextPage + 1}"
         fetch(url) // la guardo aca porq on la puedo cambiar arriba y +1 porque quiero la sigueinte pagina
         .then(res => res.json())
         .then(data => this.setState({peliculasPopulares: this.state.peliculasPopulares.concat(data.results), peliculasPopulares2: this.state.peliculasPopulares.concat(data.results), nextPage:data.page +1}, //concat: concatenar las pelis de la pag 2 a la pagina 1
@@ -50,16 +50,18 @@ class Populares extends Component{
                     <h1 className="titulo-peliculas">Peliculas populares</h1>
         
                     <div className="acciones-container">
-                        <div className="barra-filtro">
-                            <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
-                        </div>
-        
-                        <div className="cargar-mas-container">
-                            <button onClick={() => this.cargarMas()}>
-                                Cargar más
-                            </button>
-                        </div>
+                    <div className="barra-filtro">
+                        <p className="filtro-texto">Filtrar</p>
+                        <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
                     </div>
+
+                    <div className="cargar-mas-container">
+                        <button onClick={() => this.cargarMas()}>
+                        Cargar más
+                        </button>
+                    </div>
+                    </div>
+
         
                     <section className="peliculas-container">
                         {this.state.peliculasPopulares2.map((unaPeli, idx) => (
