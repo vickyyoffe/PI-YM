@@ -1,105 +1,105 @@
  /* DESCRIPCIÓN */
  .ocultar {
-    display: none;
-  }
-  
-  .mostrar {
-    font-size: 12px;
-    color: white;
-    margin: 10px;
-    text-align: justify;
-    line-height: 1.4;
-  }
+  display: none;
+}
 
-  .descripcion-contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.mostrar {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  margin: 10px;
+  text-align: justify;
+  line-height: 1.4;
+}
+
+.descripcion-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.peliculas-container {
+  display: flex;
+  flex-wrap: nowrap; /* 👈 esto evita que bajen a otra línea */
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto; /* 👈 agrega scroll si no entran todas */
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.pelicula {
+  flex: 0 0 200px; /* 👈 fuerza ancho fijo y evita que crezcan o encojan */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #121212;
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+.pelicula:hover {
+  transform: scale(1.03);
+}
+
+.pelicula img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #333;
+}
+
+.pelicula h2 {
+  font-size: 16px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.pelicula button {
+  margin: 10px auto 0 auto;
+  padding: 6px 12px;
+  font-size: 12px; /* Reducir el tamaño del texto del botón */
+  cursor: pointer;
+  background-color: #f4efef;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+.pelicula button:hover {
+  background-color: #f1f1f1;
+}
+
+
+.titulo-peliculas {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 15px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
- /* PELICULAS */ 
-  .peliculas-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .pelicula {
-    width: 22%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    background-color: #121212;
-    color: #fff;
-    padding-bottom: 10px;
-  }
-  
-  .pelicula:hover {
-    transform: scale(1.03);
-  }
-  
-  .pelicula img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #333;
-  }
-  
-  .pelicula h2 {
-    font-size: 16px;
-    margin: 10px 0;
-    text-align: center;
-  }
-  
-  .pelicula button {
-    margin: 10px auto 0 auto; /* centrado horizontal con margen arriba */
-    padding: 6px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    display: block;
-  }
-  
-  .pelicula button:hover {
-    background-color: #cc0000;
-  }
-  
-  .titulo-peliculas {
-    font-size: 32px;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    color: #ffffff;
-    background-color: #000000;
-    padding: 15px;
-    border-radius: 10px;
-    letter-spacing: 1px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease;
-  }
-  
-  @keyframes fadeInUp {
-    0% {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
+}
+

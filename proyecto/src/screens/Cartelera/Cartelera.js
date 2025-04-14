@@ -52,20 +52,21 @@ class Cartelera extends Component{
                         <p className="filtro-texto">Filtrar</p>
                         <FormFiltro filtrar={(Filtro) => this.filtrar(Filtro)} />
                     </div>
-
+                    </div>
+                    <section className="peliculas-container">
+                    {this.state.peliculasCartelera2.length > 0 ? (
+                    this.state.peliculasCartelera2.map((unaPeli, idx) => (
+                    <PeliCartelera key={unaPeli.name + idx} dataPeliPop={unaPeli} />
+                    ))
+                    ) : (
+                     <p className="sin-resultados">No hay resultados</p>
+                    )}
+                    </section>
                     <div className="cargar-mas-container">
                         <button onClick={() => this.cargarMas()}>
                         Cargar más
                         </button>
                     </div>
-                    </div>
-
-        
-                    <section className="peliculas-container">
-                        {this.state.peliculasCartelera2.map((unaPeli, idx) => (
-                            <PeliCartelera key={unaPeli.name + idx} dataPeliPop={unaPeli} />
-                        ))}
-                    </section>
                 </React.Fragment>
             )
         }
