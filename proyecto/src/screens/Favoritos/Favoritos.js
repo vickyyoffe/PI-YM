@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PeliPopulares from '../../components/peliPopulares/peliPopulares';
 import '../Favoritos/Favoritos.css';
+import Loader from '../../components/Loader/Loader';
 const ApiKey = '3c3e8a434106d2ff26f310897cce73fa';
 
 class Favoritos extends Component {
@@ -59,6 +60,8 @@ class Favoritos extends Component {
 
   render() {
     return (
+      <React.Fragment>
+      <Loader />
       <div className='peliculas-container'>
         {
           this.state.PelisFav.length > 0
@@ -75,6 +78,7 @@ class Favoritos extends Component {
               <h1>Cargando Favoritos ❤️ </h1>
         }
       </div>
+      </React.Fragment>
     );
   }
 }
