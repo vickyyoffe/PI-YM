@@ -40,11 +40,11 @@ class Peliculas extends Component{
             <React.Fragment>
                 <h1 className="titulo-peliculas">Peliculas populares</h1>
                 <section className="peliculas-container">
-                    {this.state.peliculasPopulares.slice(0,4).map((unaPeli, idx) => <PeliPopulares key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)} {/*datapelipop es unapeli en otros componenetes*/}
+                    {this.state.peliculasPopulares.slice(0,5).map((unaPeli, idx) => <PeliPopulares key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)} {/*datapelipop es unapeli en otros componenetes*/}
                 </section>
                 <h1 className="titulo-peliculas">Peliculas en cartelera</h1>
                 <section className="peliculas-container">
-                {this.state.peliculasCartelera.slice(0,4).map((unaPeli, idx) => <PeliCartelera key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)}
+                {this.state.peliculasCartelera.slice(0,5).map((unaPeli, idx) => <PeliCartelera key= {unaPeli.name + idx} dataPeliPop = {unaPeli}/>)}
                 </section>
             </React.Fragment>
         )

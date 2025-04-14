@@ -17,23 +17,22 @@
     align-items: center;
   }
   
- /* PELICULAS */ 
   .peliculas-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* 👈 esto evita que bajen a otra línea */
     justify-content: center;
     gap: 20px;
+    overflow-x: auto; /* 👈 agrega scroll si no entran todas */
     padding: 20px;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
   }
   
   .pelicula {
-    width: 22%;
+    flex: 0 0 200px; /* 👈 fuerza ancho fijo y evita que crezcan o encojan */
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
@@ -60,9 +59,9 @@
   }
   
   .pelicula button {
-    margin: 10px auto 0 auto; /* centrado horizontal con margen arriba */
+    margin: 10px auto 0 auto;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 12px; /* Reducir el tamaño del texto del botón */
     cursor: pointer;
     background-color: #f4efef;
     color: #000000;
@@ -75,6 +74,7 @@
   .pelicula button:hover {
     background-color: #f1f1f1;
   }
+  
   
   .titulo-peliculas {
     font-size: 32px;
